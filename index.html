@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sito di Viaggi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://www.wallpapers13.com/wp-content/uploads/2016/12/sea-sunset-photos-1920x1200-1680x1050.jpghttps://media.istockphoto.com/id/1317857006/it/foto/bellissimo-tramonto-al-mare.jpg?s=612x612&w=0&k=20&c=ulSrS30mk46wFB2Mri6MLd88cqOLtUS63-APdFDNiyE='); /* Sfondo con paesaggio di mare e tramonto */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            height: 100%;
+        }
+        header {
+            background-color: #0078D7; /* Colore azzurro */
+            color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #FFC107;
+        }
+        header .cta {
+            background-color: #FFC107;
+            color: black;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        header .cta:hover {
+            background-color: #ff9800;
+        }
+        .hero {
+            position: relative;
+            padding: 100px 10%;
+            text-align: center;
+            color: white; /* Colore testo bianco per contrastare sullo sfondo scuro */
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: 400;
+        }
+        /* Immagine dietro il bottone "Scopri Destinazioni" */
+        .hero .cta {
+            background-color: #FFC107;
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1; /* Assicurarsi che il bottone sia sopra l'immagine */
+        }
+        .hero .cta:hover {
+            background-color: #ff9800;
+        }
+
+        .cta-container {
+            position: relative;
+            display: inline-block;
+        }
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.dreamtrip.it/wp-content/uploads/2021/04/mappe-michelin.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        section {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: transparent; /* Rimosso sfondo grigio */
+            margin-top: 30px;
+        }
+        #destinazioni {
+            position: relative;
+            padding: 100px 10%;
+            color: white;
+        }
+        #destinazioni h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .card h3 {
+            margin: 15px 0;
+            font-weight: 500;
+            color: #333;
+        }
+        .card p {
+            color: #555;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 10%;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        footer a {
+            color: #FFC107;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            color: #ff9800;
+        }
+        .logo img {
+            height: 60px; /* Aumentato la dimensione del logo */
+            width: auto;
+        }
+        #offerte .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        #offerte .card {
+            width: 300px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://www.zarla.com/images/zarla-viaggit-1x1-2400x2400-20210608-hr8qmr3vpxfhk6j8y7pf.png?crop=1:1,smart&width=250&dpr=2" alt="Logo Viaggi">
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#destinazioni">Destinazioni</a>
+            <a href="#offerte">Offerte</a>
+            <a href="#contatti">Contattaci</a>
+        </nav>
+        <a href="#" class="cta">Prenota Ora</a>
+    </header>
+
+    <div class="hero">
+        <h1>Scopri il mondo con noi</h1>
+        <p>Esplora destinazioni incredibili a prezzi imperdibili</p>
+        <div class="cta-container">
+            <a href="#destinazioni" class="cta">Scopri Destinazioni</a>
+        </div>
+    </div>
+
+    <section id="destinazioni">
+        <h2>Le nostre destinazioni preferite</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://image.urlaubspiraten.de/720/image/upload/v1603290101/mediavault_images/k51z3aefnn6zfafmousf.jpg" alt="Parigi">
+                <h3>Parigi</h3>
+                <p>La città dell'amore ti aspetta!</p>
+            </div>
+            <div class="card">
+                <img src="https://dyn.eu.mktgcdn.com/f/100004519/LICbI_-iThZfQZAO19KYJF-ZM56Bjktjg9RN-Vk-qM4.jpg/width=500,height=500" alt="Maldive">
+                <h3>Maldive</h3>
+                <p>Paradiso tropicale a portata di mano.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.lonelyplanetitalia.it/uploads/shutterstockrf-302738093?q=80&p=slider&s=c076b3a946a4381b9b0bee557cbbb620" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>Tradizione e modernità ti sorprenderanno.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="offerte">
+        <h2>Offerte imperdibili</h2>
+        <p>Scopri i nostri pacchetti a tempo limitato!</p>
+        <div class="cards">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiBWMf5NuHNVNpfZIOWQk4vNuAQSfpBi41yw&s" alt="Weekend Roma">
+                <h3>Weekend a Roma</h3>
+                <p>A partire da €199</p>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyskEFANza80K8pwTceoIyWghNz3OA0A0Y6Q&s" alt="Tour Maldive">
+                <h3>Tour alle Maldive</h3>
+                <p>-30% di sconto</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sito di Viaggi. Tutti i diritti riservati. | <a href="#">Privacy Policy</a></p>
+        <p>Seguici su: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
+    </footer>
+
+</body>
+</html>
